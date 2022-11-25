@@ -39,7 +39,10 @@ inputEl.addEventListener('input', (event) => {
 });
 
 buttonEl.addEventListener('click', () => {
-  const seconds = Number(inputEl.value.replace(/\D/g, ""));
-  animateTimer(seconds);
-  inputEl.value = '';
+  let num = inputEl.value.match(/^\d{2}\:\d{2}\:\d{2}$/)
+  if (num){
+    const seconds = Number(inputEl.value.replace(/\D/g, ""));
+    animateTimer(seconds);
+    inputEl.value = '';
+  }
 });
